@@ -8,13 +8,13 @@
 </head>
 
 <body>
-  <h1>Hello World!</h1>
+
   <!-- All of the Node.js APIs are available in this renderer process. -->
-  We are using Node.js
+  <button onclick="alert('it works')">button</button>
+  <video autoplay controls loop />
   <script>document.write(process.versions.node)</script>, Chromium
   <script>document.write(process.versions.chrome)</script>, and Electron
   <script>document.write(process.versions.electron)</script>.
-  <video autoplay controls loop />
 
   <script>
     // You can also require other files to run in this process
@@ -22,6 +22,26 @@
     const videoSrc = `file://${require('path').join(__dirname, 'video.mp4')}`
     document.querySelector('video').src = videoSrc
   </script>
+  <style>
+    button {
+      position: absolute;
+      top: 0;
+      left: 0;
+      -webkit-app-region: no-drag;
+    }
+
+    video {
+      // uncomment this to mitigate
+      // pointer-events: none;
+    }
+
+    body {
+      margin: 0;
+      height: 100%;
+      background: red;
+      -webkit-app-region: drag;
+    }
+  </style>
 </body>
 
 </html>
